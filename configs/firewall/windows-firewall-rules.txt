@@ -1,1 +1,66 @@
+===============================================================================
+                    WINDOWS FIREWALL RULES REFERENCE
+===============================================================================
 
+================================================================================
+OUTBOUND BLOCK RULES
+================================================================================
+
+Rule Name: Block Meterpreter Reverse Shell
+Direction: Outbound
+Protocol: TCP
+Port: 4444
+Action: Block
+Profile: Domain, Private, Public
+
+Rule Name: Block Meterpreter Alt Port
+Direction: Outbound
+Protocol: TCP
+Port: 5555
+Action: Block
+Profile: Domain, Private, Public
+
+================================================================================
+INBOUND ALLOW RULES
+================================================================================
+
+Rule Name: Allow ICMP Echo Request
+Direction: Inbound
+Protocol: ICMPv4
+Action: Allow
+Profile: Domain, Private, Public
+
+================================================================================
+POWERSHELL COMMANDS TO CREATE RULES
+================================================================================
+
+# Block Outbound Port 4444
+New-NetFirewallRule -DisplayName "Block Meterpreter" `
+    -Direction Outbound `
+    -LocalPort 4444 `
+    -Protocol TCP `
+    -Action Block
+
+# Block Outbound Port 5555
+New-NetFirewallRule -DisplayName "Block Meterpreter Alt" `
+    -Direction Outbound `
+    -LocalPort 5555 `
+    -Protocol TCP `
+    -Action Block
+
+# Allow Inbound ICMP
+New-NetFirewallRule -DisplayName "Allow ICMP Echo Request" `
+    -Direction Inbound `
+    -Protocol ICMPv4 `
+    -Action Allow
+
+# Enable All Firewall Profiles
+netsh advfirewall set allprofiles state on
+
+# Disable All Firewall Profiles (Testing Only!)
+netsh advfirewall set allprofiles state off
+
+# View All Rules
+Get-NetFirewallRule | Select-Object DisplayName, Direction, Action, Enabled
+
+================================================================================
