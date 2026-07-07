@@ -1,5 +1,6 @@
 # Network Architecture Diagram
 
+
 ## Complete Network Topology
 
 ```mermaid
