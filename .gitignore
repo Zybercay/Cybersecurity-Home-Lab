@@ -1,0 +1,25 @@
+# Prevent uploading VM Hard Drives (GitHub blocks files > 100MB!)
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.ova
+*.ovf
+*.iso
+*.img
+*.vbox
+*.vbox-prev
+
+# Prevent Windows junk files
+Thumbs.db
+desktop.ini
+
+# Prevent large logs
+*.log
+*.evtx
+
+# Prevent compiled executables (GitHub scans for malware)
+*.exe
+*.ps1
+*.dll
+*.msi
