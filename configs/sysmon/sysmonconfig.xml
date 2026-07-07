@@ -1,1 +1,15 @@
+Open your web browser in Windows 11 VM
 
+Go to: https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml
+
+Press Ctrl+A (Select All) → Ctrl+C (Copy)
+
+Go back to File Explorer and create
+
+C:\configs\sysmon\sysmonconfig.xml
+
+in the sysmonconfig.xml (edit) 
+
+Press Ctrl+V (Paste)
+
+Save
